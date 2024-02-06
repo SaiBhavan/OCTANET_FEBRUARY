@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KFC Landing Page | Responsive Design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="main">
+    <header>
+      <a href="#"><img src="https://1000logos.net/wp-content/uploads/2017/03/Kfc_logo.png"class="logo"></a>
+      <div class="toggle"></div>
+      <nav>
+      <ul class="navigation">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    </header>
+    <main>
+      <section class="content">
+        <article class="text">
+          <h2>Its Finger<br>Lickin <span>Good.</span></h2>
+          <p>KFC, a subsidiary of Yum! Brands, Inc. (NYSE: YUM.), is a global chicken restaurant brand with a rich, decades-long history of success and innovation. It all started with one cook, Colonel Harland Sanders, who created a finger lickin’ good recipe more than 80 years ago, a list of secret herbs and spices scratched out on the back of the door to his kitchen. Today we still follow his formula for success, with real cooks breading and freshly preparing our delicious chicken by hand in more than 26,000 restaurants in over 150 countries and territories around the world.</p>
+          <a href="#" class="btn">Order Now</a>
+        </article>
+        <div class="slider">
+          <div class="slides active">
+            <img src="https://pngimg.com/d/kfc_food_PNG11.png ">
+          </div>
+          <div class="slides">
+            <img src="https://www.pinasgifts.com/image/cache/data/2/93-500x500.png">
+          </div>
+          <div class="slides">
+            <img src="https://images.ctfassets.net/crbk84xktnsl/VjnplwimOuT7sT4tDPlIx/cb01c6cfd4a80911207ef4a062f5d58f/Hot_Crispy_Zinger_Box.png">
+          </div>
+          <div class="slides">
+            <img src="https://tb-static.uber.com/prod/image-proc/processed_images/5c3e89117e503ae58c4aa5dbed6bbd5b/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg">
+          </div>
+        </div>
+      </section>
+    </main>    
+
+    <div class="footer">
+      <ul class="sci">
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div class="prevNext">
+        <p>Always Fresh</p>
+        <span class="prev"><ion-icon name="chevron-back-outline"></ion-icon></span>
+        <span class="next"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script> 
+    const menutoggle = document.querySelector('.toggle');
+    const navigation = document.querySelector('.navigation');
+    menutoggle.onclick = function(){
+      menutoggle.classList.toggle('active')
+      navigation.classList.toggle('active')
+    }
+
+    const slides = document.querySelectorAll('.slides');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+
+    i = 0;
+    
+    function ActiveSlide(n){
+      for(slide of slides)
+      slide.classList.remove('active');
+      slides[n].classList.add('active');
+    }
+    next.addEventListener('click', function(){
+      if(i == slides.length - 1){
+        i = 0;
+        ActiveSlide(i);
+      }
+      else 
+      {
+        i++;
+        ActiveSlide(i);
+      }
+    })
+     prev.addEventListener('click', function(){
+      if(i == 0){
+        i = slides.length - 1;
+        ActiveSlide(i);
+      }
+      else 
+      {
+        i--;
+        ActiveSlide(i);
+      }
+    })
+  </script>
+</body>
+</html>
